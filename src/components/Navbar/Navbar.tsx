@@ -23,7 +23,11 @@ function Navbar() {
         </div>
 
         {/* Navigation Links */}
-        <div className={`nav-links ${menuOpen ? "show-menu" : ""}`}>
+        <div
+          className={`nav-links ${
+            menuOpen ? "show-menu" : ""
+          }`}
+        >
           <a href="#home">Home</a>
           <a href="#technologies">Technologies</a>
           <a href="#projects">Projects</a>

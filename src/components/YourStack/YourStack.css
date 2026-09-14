@@ -12,6 +12,7 @@
 
 .stack-header {
   padding-bottom: 18px;
+
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -25,19 +26,25 @@
   font-size: 12px;
 }
 
+/* Empty Stack */
+
 .empty-stack {
   text-align: center;
+
   padding: 45px 10px;
 }
 
 .empty-stack p {
   color: #374151;
+
   font-size: 14px;
+
   margin-bottom: 5px;
 }
 
 .empty-stack span {
   color: #9ca3af;
+
   font-size: 12px;
 }
 
@@ -46,6 +53,7 @@
 .stack-items {
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 
   padding: 18px 0;
@@ -76,11 +84,13 @@
 
 .stack-item-info h3 {
   font-size: 13px;
+
   margin-bottom: 3px;
 }
 
 .stack-item-info p {
   color: #9ca3af;
+
   font-size: 11px;
 }
 
@@ -99,6 +109,8 @@
   color: #ef4444;
 }
 
+/* Remove All */
+
 .remove-all {
   width: 100%;
 
@@ -108,6 +120,7 @@
   border-radius: 6px;
 
   background-color: white;
+
   color: #ef4444;
 
   cursor: pointer;
@@ -115,4 +128,12 @@
 
 .remove-all:hover {
   background-color: #fef2f2;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .your-stack {
+    position: static;
+  }
 }

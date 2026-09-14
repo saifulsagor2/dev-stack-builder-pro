@@ -1,92 +1,74 @@
-import { useEffect, useState } from "react";
 import type { Technology } from "../../types/technology";
-import "./Technologies.css";
+import "./YourStack.css";
 
-interface TechnologiesProps {
+interface YourStackProps {
   stack: Technology[];
-  onAddToStack: (technology: Technology) => void;
+  onRemove: (id: string) => void;
+  onRemoveAll: () => void;
 }
 
-function Technologies({
+function YourStack({
   stack,
-  onAddToStack,
-}: TechnologiesProps) {
-  const [technologies, setTechnologies] = useState<Technology[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("/data/technologies.json")
-      .then((response) => response.json())
-      .then((data: Technology[]) => {
-        setTechnologies(data);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="technologies">
-        <p className="loading">Loading technologies...</p>
-      </section>
-    );
-  }
-
+  onRemove,
+  onRemoveAll,
+}: YourStackProps) {
   return (
-    <section className="technologies" id="technologies">
-      <div className="technologies-header">
-        <h2>Explore Technologies</h2>
+    <aside className="your-stack">
+      <div className="stack-header">
+        <h2>Your Stack</h2>
 
-        <p>
-          Discover the tools and technologies you can use to build
-          your next great project.
-        </p>
+        <span>
+          {stack.length} Technology
+          {stack.length !== 1 ? "ies" : "y"} Selected
+        </span>
       </div>
 
-      <div className="technology-grid">
-        {technologies.map((technology) => (
-          <div
-            className="technology-card"
-            key={technology.id}
-          >
-            <img
-              src={technology.icon}
-              alt={technology.name}
-            />
+      {stack.length === 0 ? (
+        <div className="empty-stack">
+          <p>Your stack is empty.</p>
 
-            <span className="badge">
-              {technology.badge}
-            </span>
-
-            <h3>{technology.name}</h3>
-
-            <p>{technology.description}</p>
-
-            <div className="technology-info">
-              <span>{technology.category}</span>
-              <span>{technology.difficulty}</span>
-            </div>
-
-            <div className="technology-bottom">
-              <span>⭐ {technology.rating}</span>
-
-              <button
-                onClick={() => onAddToStack(technology)}
-                disabled={stack.some(
-                  (item) => item.id === technology.id
-                )}
+          <span>
+            Add technologies to build your stack.
+          </span>
+        </div>
+      ) : (
+        <>
+          <div className="stack-items">
+            {stack.map((technology) => (
+              <div
+                className="stack-item"
+                key={technology.id}
               >
-                {stack.some(
-                  (item) => item.id === technology.id
-                )
-                  ? "✓ Added to Stack"
-                  : "Add to Stack"}
-              </button>
-            </div>
+                <img
+                  src={technology.icon}
+                  alt={technology.name}
+                />
+
+                <div className="stack-item-info">
+                  <h3>{technology.name}</h3>
+
+                  <p>{technology.category}</p>
+                </div>
+
+                <button
+                  onClick={() => onRemove(technology.id)}
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
+
+          <button
+            className="remove-all"
+            onClick={onRemoveAll}
+          >
+            Remove All
+          </button>
+        </>
+      )}
+    </aside>
   );
 }
 
-export default Technologies;
+export default YourStack;

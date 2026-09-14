@@ -18,11 +18,17 @@ function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <a href="#technologies" className="primary-button">
+            <a
+              href="#technologies"
+              className="primary-button"
+            >
               Explore Technologies
             </a>
 
-            <a href="#about" className="secondary-button">
+            <a
+              href="#about"
+              className="secondary-button"
+            >
               Learn More
             </a>
           </div>
