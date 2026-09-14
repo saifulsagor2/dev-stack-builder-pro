@@ -1,0 +1,118 @@
+.your-stack {
+  background-color: white;
+
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+
+  padding: 20px;
+
+  position: sticky;
+  top: 92px;
+}
+
+.stack-header {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.stack-header h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.stack-header span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.empty-stack {
+  text-align: center;
+  padding: 45px 10px;
+}
+
+.empty-stack p {
+  color: #374151;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.empty-stack span {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* Stack Items */
+
+.stack-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 18px 0;
+}
+
+.stack-item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+}
+
+.stack-item img {
+  width: 35px;
+  height: 35px;
+
+  object-fit: contain;
+}
+
+.stack-item-info {
+  flex: 1;
+}
+
+.stack-item-info h3 {
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.stack-item-info p {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.stack-item button {
+  border: none;
+  background: none;
+
+  color: #9ca3af;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.stack-item button:hover {
+  color: #ef4444;
+}
+
+.remove-all {
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+
+  background-color: white;
+  color: #ef4444;
+
+  cursor: pointer;
+}
+
+.remove-all:hover {
+  background-color: #fef2f2;
+}
